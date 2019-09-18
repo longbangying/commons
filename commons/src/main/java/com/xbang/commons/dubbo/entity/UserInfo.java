@@ -17,14 +17,15 @@ public class UserInfo implements Serializable {
     private String address;
 
     public UserInfo() {
-        this(0L,"",0,0);
+        this(0L,"",0,0,"");
     }
 
-    public UserInfo(Long userId, String userName, Integer userAge, Integer userSex) {
+    public UserInfo(Long userId, String userName, Integer userAge, Integer userSex,String address) {
         this.userId = userId;
         this.userName = userName;
         this.userAge = userAge;
         this.userSex = userSex;
+        this.address = address;
     }
 
     public Long getUserId() {
@@ -73,7 +74,8 @@ public class UserInfo implements Serializable {
         Integer userAge = random.nextInt(100);
         Integer userSex = random.nextInt(1);
         String userName = UUID.randomUUID().toString();
-        return new UserInfo(userId,userName,userAge,userSex);
+        String address = "中国北京";
+        return new UserInfo(userId,userName,userAge,userSex,address);
 
     }
 

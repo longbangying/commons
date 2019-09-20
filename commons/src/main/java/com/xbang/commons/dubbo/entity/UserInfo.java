@@ -16,6 +16,8 @@ public class UserInfo implements Serializable {
 
     private String address;
 
+    private String provider;
+
     public UserInfo() {
         this(0L,"",0,0,"");
     }
@@ -68,6 +70,14 @@ public class UserInfo implements Serializable {
         this.address = address;
     }
 
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
     public static UserInfo getRandomUserInfo(){
         Random random = new Random();
         Long userId = System.currentTimeMillis();
@@ -79,6 +89,13 @@ public class UserInfo implements Serializable {
 
     }
 
+    public static  UserInfo getRandomUserInfo(String provider){
+        UserInfo userInfo = getRandomUserInfo();
+        userInfo.setProvider(provider);
+        return userInfo;
+    }
+
+
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -87,6 +104,7 @@ public class UserInfo implements Serializable {
                 ", userAge=" + userAge +
                 ", userSex=" + userSex +
                 ", address='" + address + '\'' +
+                ", provider='" + provider + '\'' +
                 '}';
     }
 }
